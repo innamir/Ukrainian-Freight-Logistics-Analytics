@@ -1,0 +1,11 @@
+﻿route_id,client_id,origin_city,destination_city,distance_km,route_type,typical_cargo,has_port
+RTE-01,CLT-01,Кропивницький,Дніпро,246,highway,sunflower,0
+RTE-02,CLT-02,Дніпро,Одеса,472,highway,corn,1
+RTE-03,CLT-03,Полтава,Чорноморськ,612,highway,wheat,1
+RTE-04,CLT-04,Миколаїв,Одеса,132,local,sunflower,1
+RTE-05,CLT-05,Черкаси,Кременчук,118,local,soy,0
+RTE-06,CLT-06,Вінниця,Київ,267,highway,mixed grains,0
+RTE-07,CLT-07,Вінниця,Жмеринка,52,local,wheat,0
+RTE-08,CLT-08,Чернігів,Київ,149,local,wheat,0
+RTE-09,CLT-09,Хмельницький,Тернопіль,112,local,wheat,0
+RTE-10,CLT-11,Подільськ,Чорноморськ,214,highway,wheat,1
