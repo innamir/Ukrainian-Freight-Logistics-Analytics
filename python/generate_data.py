@@ -245,18 +245,18 @@ def make_drivers() -> list[dict]:
     # thin ~10-12% to a realistic ~27-34% once fuel/overhead have to come
     # out of the same rate.
     data = [
-        ("DRV-01", "Олександр Ковальчук", 0.105 * 3.6, "2019-03-18", 9, "local"),
-        ("DRV-02", "Віталій Бондаренко", 0.108 * 3.6, "2020-06-02", 10, "highway"),
-        ("DRV-03", "Сергій Мельник", 0.112 * 3.6, "2018-11-14", 12, "local"),
-        ("DRV-04", "Андрій Савченко", 0.118 * 3.6, "2021-01-22", 18, "highway"),
-        ("DRV-05", "Ігор Шевченко", 0.120 * 3.6, "2017-07-09", 20, "local"),
-        ("DRV-06", "Микола Ткаченко", 0.116 * 3.6, "2020-09-30", 15, "highway"),
-        ("DRV-07", "Петро Романюк", 0.114 * 3.6, "2019-12-11", 14, "local"),
-        ("DRV-08", "Юрій Дорошенко", 0.122 * 3.6, "2021-05-16", 19, "highway"),
-        ("DRV-09", "Василь Кравець", 0.119 * 3.6, "2022-02-07", 18, "local"),
-        ("DRV-10", "Дмитро Лисенко", 0.110 * 3.6, "2021-08-25", 8, "highway"),
-        ("DRV-11", "Тарас Гончар", 0.121 * 3.6, "2022-04-19", 20, "local"),
-        ("DRV-12", "Роман Мороз", 0.117 * 3.6, "2020-02-03", 13, "highway"),
+        ("DRV-01", "Олександр Ковальчук", 0.120, "2019-03-18", 9, "local"),
+        ("DRV-02", "Віталій Бондаренко", 0.122, "2020-06-02", 10, "highway"),
+        ("DRV-03", "Сергій Мельник", 0.123, "2018-11-14", 12, "local"),
+        ("DRV-04", "Андрій Савченко", 0.126, "2021-01-22", 18, "highway"),
+        ("DRV-05", "Ігор Шевченко", 0.128, "2017-07-09", 20, "local"),
+        ("DRV-06", "Микола Ткаченко", 0.124, "2020-09-30", 15, "highway"),
+        ("DRV-07", "Петро Романюк", 0.125, "2019-12-11", 14, "local"),
+        ("DRV-08", "Юрій Дорошенко", 0.129, "2021-05-16", 19, "highway"),
+        ("DRV-09", "Василь Кравець", 0.127, "2022-02-07", 18, "local"),
+        ("DRV-10", "Дмитро Лисенко", 0.121, "2021-08-25", 8, "highway"),
+        ("DRV-11", "Тарас Гончар", 0.130, "2022-04-19", 20, "local"),
+        ("DRV-12", "Роман Мороз", 0.126, "2020-02-03", 13, "highway"),
     ]
     return [
         {
@@ -410,12 +410,21 @@ def make_client_rates(clients: list[dict]) -> list[dict]:
         "CLT-11": 0.82,
     }
     bands = [
-        (0, 150, 18, 21, 2.16),
-        (0, 150, 21, 27, 2.03),
-        (150, 300, 18, 23, 1.94),
-        (150, 300, 23, 27, 1.82),
-        (300, 500, 18, 24, 1.76),
-        (500, 9999, 18, 25, 1.67),
+        (0, 150, 15, 18, 2.16),
+        (0, 150, 18, 22, 2.03),
+        (0, 150, 22, 30, 1.95),
+
+        (150, 300, 15, 18, 1.94),
+        (150, 300, 18, 22, 1.82),
+        (150, 300, 22, 30, 1.74),
+
+        (300, 500, 15, 18, 1.76),
+        (300, 500, 18, 22, 1.68),
+        (300, 500, 22, 30, 1.60),
+
+        (500, 9999, 15, 18, 1.67),
+        (500, 9999, 18, 22, 1.58),
+        (500, 9999, 22, 30, 1.50),
     ]
     rows = []
     for client in clients:
@@ -778,7 +787,7 @@ def make_refuelings(
             # storms, road closures) - a real mechanism tying delay_hours to cost.
             idle_liters_per_hour = random.uniform(1.8, 3.2)
             liters_needed += float(trip["delay_hours"]) * idle_liters_per_hour
-            fuel_level -= liters_needed
+            fuel_level = max(0.0, fuel_level - liters_needed)
             current_odo = odo_after_trip[trip["trip_id"]]
 
             threshold = capacity * random.uniform(0.15, 0.25)
@@ -916,16 +925,16 @@ def main() -> None:
         trucks, downtime, trips, fuel_batches, trip_metrics, refuelings, refuel_validation_events
     )
 
-    write_csv("01_trucks.csv", trucks, TRUCK_COLUMNS)
-    write_csv("02_drivers.csv", drivers, DRIVER_COLUMNS)
-    write_csv("03_clients.csv", clients, CLIENT_COLUMNS)
-    write_csv("04_routes.csv", routes, ROUTE_COLUMNS)
-    write_csv("05_client_rates.csv", client_rates, RATE_COLUMNS)
-    write_csv("06_truck_downtime.csv", downtime, DOWNTIME_COLUMNS)
-    write_csv("07_fuel_batches.csv", fuel_batches, FUEL_BATCH_COLUMNS)
-    write_csv("08_trips.csv", trips, TRIP_COLUMNS)
-    write_csv("09_trip_metrics.csv", trip_metrics, TRIP_METRICS_COLUMNS)
-    write_csv("10_truck_refuelings.csv", refuelings, REFUELING_COLUMNS)
+    write_csv("trucks.csv", trucks, TRUCK_COLUMNS)
+    write_csv("drivers.csv", drivers, DRIVER_COLUMNS)
+    write_csv("clients.csv", clients, CLIENT_COLUMNS)
+    write_csv("routes.csv", routes, ROUTE_COLUMNS)
+    write_csv("client_rates.csv", client_rates, RATE_COLUMNS)
+    write_csv("truck_downtime.csv", downtime, DOWNTIME_COLUMNS)
+    write_csv("fuel_batches.csv", fuel_batches, FUEL_BATCH_COLUMNS)
+    write_csv("trips.csv", trips, TRIP_COLUMNS)
+    write_csv("trip_metrics.csv", trip_metrics, TRIP_METRICS_COLUMNS)
+    write_csv("truck_refuelings.csv", refuelings, REFUELING_COLUMNS)
 
     print(f"Wrote CSVs to {OUT_DIR.resolve()}")
     print(f"Trips: {len(trips):,}")
@@ -937,4 +946,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-    
