@@ -7,6 +7,7 @@ End-to-end analytics project exploring profitability, fuel costs, client perform
 ## Table of Contents
 
 - [Project Overview](#project-overview)
+- [Project Scope](#project-scope)
 - [Business Questions](#business-questions)
 - [Analysis by Business Question](#analysis-by-business-question)
 - [Dataset](#dataset)
@@ -55,10 +56,11 @@ This project demonstrates an end-to-end analytics workflow:
 
 | Business Question | SQL | Notebook | Insights |
 |---|---|---|---|
-| Which clients generate the highest profit rather than just revenue? | [`sql/02_client_profitability.sql`](sql/02_client_profitability.sql) | [`notebooks/02_client_profitability.ipynb`](notebooks/02_client_profitability.ipynb) | [`docs/03_client_profitability_summary.md`](docs/03_client_profitability_summary.md) |
-| How did rising fuel prices affect profitability across clients and routes? | [`sql/03_fuel_cost_impact.sql`](sql/03_fuel_cost_impact.sql) | [`notebooks/03_fuel_cost_impact.ipynb`](notebooks/03_fuel_cost_impact.ipynb) | [`docs/04_fuel_cost_summary.md`](docs/04_fuel_cost_summary.md) |
-| Which routes generate the highest operational costs due to delays and fuel consumption? | [`sql/04_route_costs.sql`](sql/04_route_costs.sql) | [`notebooks/04_route_costs.ipynb`](notebooks/04_route_costs.ipynb) | [`docs/05_route_costs_summary.md`](docs/05_route_costs_summary.md) |
-| Which trucks and drivers operate most efficiently? | [`sql/05_truck_driver_performance.sql`](sql/05_truck_driver_performance.sql) | [`notebooks/05_truck_driver_performance.ipynb`](notebooks/05_truck_driver_performance.ipynb) | [`docs/06_truck_driver_summary.md`](docs/06_truck_driver_summary.md) |
+| Business Performance Overview | [`sql/05_business_overview.sql`](sql/02_business_overview.sql) | [`notebooks/02_business_overview.ipynb`](notebooks/02_business_overview.ipynb) | [`docs/03_business_overview_summary.md`](docs/03_business_overview_summary.md) |
+| Which clients generate the highest profit rather than just revenue? | [`sql/06_client_profitability.sql`](sql/03_client_profitability.sql) | [`notebooks/03_client_profitability.ipynb`](notebooks/03_client_profitability.ipynb) | [`docs/04_client_profitability_summary.md`](docs/04_client_profitability_summary.md) |
+| How did rising fuel prices affect profitability across clients and routes? | [`sql/07_fuel_cost_impact.sql`](sql/07_fuel_cost_impact.sql) | [`notebooks/04_fuel_cost_impact.ipynb`](notebooks/04_fuel_cost_impact.ipynb) | [`docs/05_fuel_cost_summary.md`](docs/05_fuel_cost_summary.md) |
+| Which routes generate the highest operational costs due to delays and fuel consumption? | [`sql/08_route_costs.sql`](sql/08_route_costs.sql) | [`notebooks/05_route_costs.ipynb`](notebooks/05_route_costs.ipynb) | [`docs/06_route_costs_summary.md`](docs/06_route_costs_summary.md) |
+| Which trucks and drivers operate most efficiently? | [`sql/09_truck_driver_performance.sql`](sql/09_truck_driver_performance.sql) | [`notebooks/06_truck_driver_performance.ipynb`](notebooks/06_truck_driver_performance.ipynb) | [`docs/07_truck_driver_summary.md`](docs/07_truck_driver_summary.md) |
 
 ## Dataset
 
@@ -127,7 +129,7 @@ All critical data quality issues were resolved before starting business analysis
 Detailed validation results are available in:
 
 - [`docs/02_data_quality_summary.md`](docs/02_data_quality_summary.md)
-- [`sql/01_data_quality_checks.sql`](sql/01_data_quality_checks.sql)
+- [`sql/04_data_quality.sql`](sql/04_data_quality.sql)
 
 ## Dashboard
 
