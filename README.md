@@ -238,12 +238,15 @@ Detailed validation results are available in:
 
 🔗 [View live dashboard on Tableau Public](https://public.tableau.com/app/profile/inna.myroshnichenko3475/viz/UkrainianFreightLogisticsAnalytics/BusinessOverview)
 
+
 - Business Overview
 - Client Profitability
 - Fuel Cost Impact
 - Route Efficiency Analysis (2024)
 - Truck Performance (2024)
 
+![Client Profitability Dashboard](tableau/screenshots/client_profitability.png)
+![Fuel Cost Impact Dashboard](tableau/screenshots/fuel_cost_impact.png)
 
 ## Tech Stack
 
