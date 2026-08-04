@@ -258,17 +258,20 @@ Detailed validation results are available in:
 
 ## Repository Structure
 
+```text
 ├── data/
-│ ├── raw/ # Generated source CSVs
-│ └── processed/ # Analysis outputs (client, route, fuel, truck risk tables)
-├── sql/ # Database creation, constraints, and data quality validation
-├── notebooks/ # Data quality, dataset build, and business question notebooks (01-08)
-├── python/ # Synthetic dataset generator and fuel cost allocation logic
-├── docs/ # Data quality report and per-notebook business summaries
-├── tableau/ # Tableau workbook and dashboard assets
-├── .env.example # Environment variables template
+│   ├── raw/                    # Generated source CSVs
+│   └── processed/              # Analysis outputs (client, route, fuel, truck risk tables)
+├── sql/                        # Database creation, constraints, and data quality validation
+├── notebooks/                  # Data quality, dataset build, and business question notebooks (01-08)
+├── python/                     # Synthetic dataset generator and fuel cost allocation logic
+├── docs/                       # Data quality report and per-notebook business summaries
+├── tableau/
+│   └── screenshots/            # Dashboard screenshots for README
+├── .env.example                 # Environment variables template
 ├── .gitignore
 └── README.md
+```
 
 ## Key Insights
 
