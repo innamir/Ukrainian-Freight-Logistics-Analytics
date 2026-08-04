@@ -236,7 +236,7 @@ Detailed validation results are available in:
 
 ## Dashboard
 
-🔗 [View live dashboard on Tableau Public](https://public.tableau.com/...)
+🔗 [View live dashboard on Tableau Public](https://public.tableau.com/app/profile/inna.myroshnichenko3475/viz/UkrainianFreightLogisticsAnalytics/BusinessOverview)
 
 - Business Overview
 - Client Profitability
@@ -244,7 +244,6 @@ Detailed validation results are available in:
 - Route Efficiency Analysis (2024)
 - Truck Performance (2024)
 
-![Client Profitability Dashboard](tableau/screenshots/client_profitability.png)
 
 ## Tech Stack
 
@@ -255,6 +254,7 @@ Detailed validation results are available in:
 - GitHub
 
 ## Repository Structure
+
 ├── data/
 │ ├── raw/ # Generated source CSVs
 │ └── processed/ # Analysis outputs (client, route, fuel, truck risk tables)
